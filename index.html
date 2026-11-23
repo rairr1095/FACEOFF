@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FACE OFF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LAYAR AWAL: nama tim -->
+  <section id="setup" class="overlay show">
+    <div class="panel">
+      <h1 class="logo">FACE <span>OFF</span></h1>
+      <p class="muted">Masukkan nama tim</p>
+      <input id="nameA" type="text" value="Tim A" maxlength="16" autocomplete="off">
+      <input id="nameB" type="text" value="Tim B" maxlength="16" autocomplete="off">
+      <button id="btnStart" class="btn gold big">MULAI GAME</button>
+    </div>
+  </section>
+
+  <!-- PILIH TIM YANG MULAI (nama tim bisa diganti tiap soal) -->
+  <section id="pick" class="overlay">
+    <div class="panel">
+      <p class="muted" id="pickRound"></p>
+      <h2>Siapa yang bermain?</h2>
+      <input id="pickNameA" type="text" maxlength="16" autocomplete="off">
+      <input id="pickNameB" type="text" maxlength="16" autocomplete="off">
+      <label class="check" id="resetWrap">
+        <input type="checkbox" id="resetScore"> Tim baru, skor mulai dari 0
+      </label>
+      <p class="muted">Pilih tim yang mulai. Timer 1 menit langsung jalan.</p>
+      <div class="row">
+        <button id="pickA" class="btn gold big"></button>
+        <button id="pickB" class="btn gold big"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HASIL AKHIR -->
+  <section id="endCard" class="overlay">
+    <div class="panel">
+      <h2>HASIL AKHIR</h2>
+      <div class="final-scores">
+        <div><span id="fNameA"></span><b id="fScoreA">0</b></div>
+        <div><span id="fNameB"></span><b id="fScoreB">0</b></div>
+      </div>
+      <h1 id="winner" class="logo"></h1>
+      <button id="btnRestart" class="btn gold big">MAIN LAGI</button>
+    </div>
+  </section>
+
+  <!-- GAME -->
+  <main id="game" hidden>
+    <header class="topbar">
+      <div>
+        <div id="roundTitle" class="round-title"></div>
+        <div id="roundSub" class="round-sub"></div>
+      </div>
+      <div class="tools">
+        <button id="btnMute" class="icon-btn" title="Suara">🔊</button>
+        <button id="btnFull" class="icon-btn" title="Layar penuh">⛶</button>
+      </div>
+    </header>
+
+    <section class="scorebar">
+      <div class="team" id="team0">
+        <div class="tname"></div>
+        <div class="tscore">0</div>
+        <div class="strikes"><i>✕</i><i>✕</i><i>✕</i></div>
+        <div class="adj">
+          <button data-t="0" data-d="-1">−1</button>
+          <button data-t="0" data-d="1">+1</button>
+        </div>
+      </div>
+
+      <div class="center">
+        <div id="phaseLabel" class="phase"></div>
+        <div id="timer" class="timer">01:00</div>
+        <div class="bar"><div id="barFill"></div></div>
+      </div>
+
+      <div class="team" id="team1">
+        <div class="tname"></div>
+        <div class="tscore">0</div>
+        <div class="strikes"><i>✕</i><i>✕</i><i>✕</i></div>
+        <div class="adj">
+          <button data-t="1" data-d="-1">−1</button>
+          <button data-t="1" data-d="1">+1</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="question" class="question"></section>
+
+    <section id="board" class="board"></section>
+
+    <!-- CONTROLS (tombol di bawah papan jawaban) -->
+    <section class="controls">
+      <div class="row">
+        <button id="btnWrong" class="btn red big" disabled>✕ SALAH</button>
+        <button id="btnPause" class="btn" disabled>⏸ JEDA</button>
+        <button id="btnReveal" class="btn" disabled>TAMPILKAN SEMUA</button>
+        <button id="btnNext" class="btn green" hidden>SOAL BERIKUTNYA ▶</button>
+      </div>
+      <p class="hint">Klik kotak biru untuk membuka jawaban yang benar (poin masuk ke tim yang sedang giliran). Pintasan: tombol 1–5 = buka jawaban, X = salah.</p>
+    </section>
+  </main>
+
+  <div id="strikeFlash" class="strike-flash"></div>
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
