@@ -40,13 +40,13 @@
     {
       babak: 'BABAK PRELIMINARY',
       sesi: 'FACE OFF 10',
-      tanya: 'Sebutkan 5 hewan yang namanya diulang dalam bahasa Indonesia.',
+      tanya: 'Sebutkan 5 warna yang terdapat pada cincin Olimpiade!',
       jawaban: [
-        { teks: 'Kupu-kupu',     poin: 20 },
-        { teks: 'Kura-kura',     poin: 20 },
-        { teks: 'Laba-laba',     poin: 20 },
-        { teks: 'Ubur-ubur',     poin: 20 },
-        { teks: 'Kunang-kunang', poin: 20 }
+        { teks: 'Biru',     poin: 30 },
+        { teks: 'Kuning',     poin: 25 },
+        { teks: 'Hitam',     poin: 20 },
+        { teks: 'Hijau',     poin: 15 },
+        { teks: 'Merah', poin: 10 }
       ]
     }
   ];
